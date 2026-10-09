@@ -1,0 +1,6 @@
+Contract
+version
+role
+dims
+manifest
+sink
