@@ -40,4 +40,9 @@ that lists products static outputs cannot describe.</p>
 <p>Field of a CWL output. The form is <code>{influx: &lt;measurement&gt;}</code>. The output is a CSV time
 series that the result collector writes to InfluxDB. It is not a data product.</p>
 
+<h3 id="warnings"><code>ccat:warnings</code></h3>
+<p>Field of an optional CWL output. The value <code>true</code> marks the output as a warning signal.
+When a completed run holds the output (not null), the run is completed with warnings.
+A null optional output without the mark is not a warning.</p>
+
 <p><a href="../">All namespaces</a></p>
