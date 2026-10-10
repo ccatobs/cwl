@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CCAT CWL namespace v1</title>
+<h1>The <code>ccat:</code> CWL namespace, contract v1</h1>
+<p>URI: <code>https://ccatobs.github.io/cwl/v1#</code>. Prefix: <code>ccat:</code>.</p>
+<pre>$namespaces:
+  ccat: https://ccatobs.github.io/cwl/v1#</pre>
+<p>CWL treats the URI as an identifier. cwltool requests this page to check the hint class
+<code>ccat:Contract</code>. The rules are in
+<a href="https://github.com/ccatobs/ccat-pipelines/blob/main/contracts/v1.md">contracts/v1.md</a>
+of ccatobs/ccat-pipelines; this page defines the terms only.</p>
+
+<h2>Terms</h2>
+
+<h3 id="Contract"><code>ccat:Contract</code></h3>
+<p>Hint class, used under <code>hints</code> of a <code>CommandLineTool</code>. It names the contract version
+that the tool implements.</p>
+<pre>hints:
+  ccat:Contract:
+    version: 1</pre>
+
+<h3 id="version"><code>ccat:Contract</code> field <code>version</code></h3>
+<p>Integer. The contract version. For this namespace the value is <code>1</code>. Registration and submit
+refuse an unsupported version.</p>
+
+<h3 id="role"><code>ccat:role</code></h3>
+<p>Field of a CWL output. A <code>DataProductType</code> value of ops-db: <code>science</code>,
+<code>qa_metric</code>, <code>plot</code>, <code>log</code>, <code>statistics</code> or <code>intermediate</code>.
+It gives the product type of the output.</p>
+
+<h3 id="dims"><code>ccat:dims</code></h3>
+<p>Field of a CWL output. A map of dimension names to values that identify the product within the run.
+The result collector merges it over the dims of the run.</p>
+
+<h3 id="manifest"><code>ccat:manifest</code></h3>
+<p>Field of a CWL <code>File</code> output. The value <code>true</code> marks the output as an output manifest
+that lists products static outputs cannot describe.</p>
+
+<h3 id="sink"><code>ccat:sink</code></h3>
+<p>Field of a CWL output. The form is <code>{influx: &lt;measurement&gt;}</code>. The output is a CSV time
+series that the result collector writes to InfluxDB. It is not a data product.</p>
+
+<h3 id="warnings"><code>ccat:warnings</code></h3>
+<p>Field of an optional CWL output. The value <code>true</code> marks the output as a warning signal.
+When a completed run holds the output (not null), the run is completed with warnings.
+A null optional output without the mark is not a warning.</p>
+
+<p><a href="../">All namespaces</a></p>
